@@ -1,1 +1,535 @@
+<title>ANIMATED DASHBOARD FOR CBT_DASHBOARD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap');
+    
+   body { font-family: 'Glegoo', serif; } 
+    h1 { font-weight: 700; }
+    </style>
+
+
+<style>
+    .ball { margin: auto; text-align: center;
+      position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+      border-radius: 100%;
+      opacity: 0.5;
+    }
+    </style>
+    
+    
+    
+    
+    
+    <body>
+    <h1 style="text-align: center; padding: 12px; background-color: #4478e3; color: #ffffff;">ANIMATED DASHBOARD FOR CBT_DASHBOARD</h1>
+      <script>
+
+const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+    
+    const numBalls = 150;
+    const balls = [];
+    
+    for (let i = 0; i < numBalls; i++) {
+      let ball = document.createElement("div");
+      ball.classList.add("ball");
+      ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+      ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+      ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+      ball.style.bottom = `${Math.floor(Math.random() * 100)}vh`;
+      ball.style.right = `${Math.floor(Math.random() * 100)}vw`;
+      ball.style.transform = `scale(${Math.random()})`;
+      ball.style.width = `${Math.random()}em`;
+      ball.style.height = ball.style.width;
+      
+      balls.push(ball);
+      document.body.append(ball);
+    }
+    
+    
+    balls.forEach((el, i, ra) => {
+      let to = {
+        x: Math.random() * (i % 2 === 0 ? -11 : 11),
+        y: Math.random() * 12
+      };
+    
+      let anim = el.animate(
+        [
+          { transform: "translate(0, 0)" },
+          { transform: `translate(${to.x}rem, ${to.y}rem)` }
+        ],
+        {
+          duration: (Math.random() + 1) * 2000, // random duration
+          direction: "alternate",
+          fill: "both",
+          iterations: Infinity,
+          easing: "ease-in-out"
+        }
+      );
+    });
+    </script>
+    
+
+
+
+
+    <style>
+        .hide{ font-size: 0; position: fixed; top: -99999px; left: -99999px; }
+        
+        </style>
+         
+         <span id="displaySeconds" class="hide">1</span>
+         
+        <table class="table table-striped hide" id="output"> 
+         
+          <tbody id="results"></tbody>
+        </table>
+             
+        
+
+
+
+
+    <style>
+
+        div.card1, div.card2, div.card3, div.card4 {
+            background-size: 600% 100%;
+            animation: gradient 5s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        
+        
+        </style>
+
+
+
+    <style>
+
+
+        .card1 { 
+        background:linear-gradient(135deg, #CE9FFC 0%,#7367F0 100%);
+        }
+        
+        .card2 {
+        background:linear-gradient(135deg, #fad961 0%,#f76b1c 100%);
+        }
+        
+        .card3 {
+        background:linear-gradient(135deg, #c3ec52 0%,#0ba29d 100%);}
+        
+        .card4 {
+        background:linear-gradient(135deg, #13f1fc 0%,#0470dc 100%);}
+        </style>
+        
+        
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        * { margin: 0;
+          box-sizing: border-box;
+        }
+        
+        .column{ float: left;
+        padding: 8px;
+        }
+        
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+         
+        .card1, .card2, .card3, .card4 {  color: #ffffff;
+           padding-top: 22px!important;
+           padding-bottom: 25px!important; 
+           text-align: center;
+           padding: 8px; border-radius: 5px;
+           box-shadow:  0 10px 80px rgba(0, 0, 0, 0.08);
+         }
+        
+        h6 { font-size: 15px; }
+        h2 { font-size: 30px; padding-top: 12px; }
+        
+        @media only screen and (min-width: 600px) {
+        .width {  float: left; width: 50%; }
+        .column {  width: 25%; }
+        }
+        
+        @media only screen and (max-width: 600px) {
+        .width50 { width: 100%; }
+        .column { width: 50%; }
+        }
+        
+        .mw-fixed { max-width: 1080px; margin: auto; }
+        .column-half { float: left; width: 50%; padding: 8px;
+        text-align: center;
+        }
+        
+        .half-c { border-radius: 5px; border: 1px solid #ddd; } 
+        </style>
+    
+
+
+
+    
+        
+<div style="text-align: center; padding: 32px;">
+
+<span style="color: #222222; font-size: 14px;">TOTAL MOCKS COMPLETED</span>
+<h6 style="color: black; font-size: 30px; padding-top: 12px;" id="total_c"></h6>
+
+</div>
+    
+
+<section class="row mw-fixed">
+
+    <div class="width50">
+    
+           <div class="column">
+                  <div class="card1">
+                          <h6>CTS MOCKS</h6>
+                          <h2 id="cts_c"></h2> 
+                  </div>
+           </div>
+    
+           <div class="column">
+                   <div class="card2">
+                          <h6>CITS MOCKS</h6>
+                          <h2 id="cits_c"></h2>
+                   </div>
+            </div>
+     
+    </div>
+    
+    
+    <div class="width50">
+               <div class="column">
+                      <div class="card3">
+                                <h6>MOBILE</h6>
+                                <h2 id="mobile_c"></h2>
+                      </div>
+                </div>
+    
+              <div class="column">
+                     <div class="card4">
+                                 <h6>DESKTOP</h6>
+                                 <h2 id="desktop_c"></h2>
+                     </div>
+               </div>
+    
+    </div>
+     
+    </section>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+a {
+  text-decoration:none;
+}
+footer {
+  width:100%;
+  bottom:0px
+}
+footer div {
+  background-color: var(--col-deepblue);
+  margin: -5px 0px 0px 0px;
+  padding:0px;
+  color: #fff;
+  text-align:center;
+}
+svg {
+  width:100%;
+  overflow:visible;
+}
+
+.wave {
+  animation: wave 3s linear;
+  animation-iteration-count:infinite;
+  fill: #4478e3;
+}
+.drop {
+  fill: var(--col-deepblue);
+  xfill: #99000055;
+  animation: drop 3.2s linear infinite normal;
+  stroke: var(--col-deepblue);
+  stroke-width:0.5;
+  transform: translateY(25px) ;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.drop1 {
+  
+}
+.drop2 {
+  animation-delay: 3s;
+  animation-duration:3s;
+}
+.drop3 {
+  animation-delay: -2s;
+  animation-duration:3.4s;
+}
+.drop4 {
+  animation-delay: 1.7s;
+}
+.drop5 {
+  animation-delay: 2.7s;
+  animation-duration:3.1s;
+}
+.drop6 {
+  animation-delay: -2.1s;
+  animation-duration:3.2s;
+}
+.gooeff {
+  	filter: url(#goo);
+}
+#wave2 {
+  animation-duration:5s;
+  animation-direction: reverse;
+  opacity: .6
+}
+#wave3 {
+  animation-duration: 7s;
+  opacity:.3;
+}
+@keyframes drop {
+  0% {
+    transform: translateY(25px); 
+  }
+  30% {
+    transform: translateY(-10px) scale(.1);
+  }
+  30.001% {
+    transform: translateY(25px) scale(1); 
+  }
+  70% {
+    transform: translateY(25px); 
+  }
+  100% { 
+    transform: translateY(-10px) scale(.1);  
+  }
+}
+@keyframes wave {
+  to {transform: translateX(-100%);}
+}
+</style>
+
+
+
+
+
+
+
+
+
+<footer>
+<style>
+.anim-svg {position: relative;}
+.footer-text { position: absolute; left: 0; right: 0;}
+</style>
+    <div class="anim-svg">
+    <svg viewBox="0 0 120 28">
+     <defs> 
+        <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="
+               1 0 0 0 0  
+               0 1 0 0 0  
+               0 0 1 0 0  
+               0 0 0 13 -9" result="goo" />
+          <xfeBlend in="SourceGraphic" in2="goo" />
+          </filter>
+         <path id="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+      </defs> 
+    
+       <use id="wave3" class="wave" xlink:href="#wave" x="0" y="-2" ></use> 
+       <use id="wave2" class="wave" xlink:href="#wave" x="0" y="0" ></use>
+     
+     
+      <g class="gooeff" filter="url(#goo)">
+      <circle class="drop drop1" cx="20" cy="2" r="8.8"  />
+      <circle class="drop drop2" cx="25" cy="2.5" r="7.5"  />
+      <circle class="drop drop3" cx="16" cy="2.8" r="9.2"  />
+      <circle class="drop drop4" cx="18" cy="2" r="8.8"  />
+      <circle class="drop drop5" cx="22" cy="2.5" r="7.5"  />
+      <circle class="drop drop6" cx="26" cy="2.8" r="9.2"  />
+      <circle class="drop drop1" cx="5" cy="4.4" r="8.8"  />
+      <circle class="drop drop2" cx="5" cy="4.1" r="7.5"  />
+      <circle class="drop drop3" cx="8" cy="3.8" r="9.2"  />
+      <circle class="drop drop4" cx="3" cy="4.4" r="8.8"  />
+      <circle class="drop drop5" cx="7" cy="4.1" r="7.5"  />
+      <circle class="drop drop6" cx="10" cy="4.3" r="9.2"  />
+      
+      <circle class="drop drop1" cx="1.2" cy="5.4" r="8.8"  />
+      <circle class="drop drop2" cx="5.2" cy="5.1" r="7.5"  />
+      <circle class="drop drop3" cx="10.2" cy="5.3" r="9.2"  />
+        <circle class="drop drop4" cx="3.2" cy="5.4" r="8.8"  />
+      <circle class="drop drop5" cx="14.2" cy="5.1" r="7.5"  />
+      <circle class="drop drop6" cx="17.2" cy="4.8" r="9.2"  />
+      <use id="wave1" class="wave" xlink:href="#wave" x="0" y="1" />
+     </g>  
+        <!-- g mask="url(#xxx)">
+        <path   id="wave1"  class="wave" d="M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z" />
+        </g>
+      </g -->
+    
+    </svg>
+    </div>
+    <center>
+    <div class="footer-text">
+    <h1 style="text-align: center; padding: 12px; background-color: #4478e3; color: #ffffff;">FOOTER FOR CBT_DASHBOARD</h1>
+</div></center>
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+    var count = 0; // Number of remaining seconds.
+    var counter; // Handle for the countdown event.
+    
+    function start() {
+     counter = setInterval(timer, 1);
+    }
+ 
+    function timer() {
+     var output = document.getElementById("displaySeconds");
+     output.innerHTML = count;
+      count--;
+     
+     // Check if the counter has reached zero.
+     if (count < 0) { // If the counter has reached zero...
+      // Stop the counter.
+      clearInterval(counter);
+      
+      // Start the download.
+     document.getElementById("ll").click();
+      return;
+     }
+    }  
+    // Start the countdown timer when the page loads. 
+    window.addEventListener("load", start, false);
+   </script>
+ <button id="ll" onclick="op()" class="hide"></button>
+  
+ <script>
+ 
+ function op() {
+    total_m = document.getElementById("output").rows[0].cells[1].innerText;
+   document.getElementById("total_c").innerHTML = total_m;
+ 
+   cts_m = document.getElementById("output").rows[1].cells[1].innerText;
+   document.getElementById("cts_c").innerHTML = cts_m;
+ 
+   cits_m = document.getElementById("output").rows[2].cells[1].innerText;
+   document.getElementById("cits_c").innerHTML = cits_m;
+ 
+   mobile_m = document.getElementById("output").rows[3].cells[1].innerText;
+   document.getElementById("mobile_c").innerHTML = mobile_m;
+ 
+   desktop_m = document.getElementById("output").rows[4].cells[1].innerText;
+   document.getElementById("desktop_c").innerHTML = desktop_m;
+ 
+ 
+ 
+ }
+ </script>
+ 
+ 
+  
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ 
+ <script>
+ // Format numbers
+ function addCommas(nStr) {
+   nStr += "";
+   var x = nStr.split("."); 
+   var x1 = x[0];
+   var x2 = x.length > 1 ? "." + x[1] : "";
+   var rgx = /(\d+)(\d{3})/;
+   while (rgx.test(x1)) {
+     x1 = x1.replace(rgx, "$1" + "," + "$2");
+   }
+   return x1 + x2; 
+ }
+  
+ // Store the Sheet ID
+ var googleSheetKey = "1YtT9eaY0WwAZiW95xbkwQKO77szVWl-Q7Hy3F01u-2I";
+ var theSheet; //Save the preloaded JSON object here
+ 
+ //First Json Source
+ $.ajax({
+   url: "https://spreadsheets.google.com/feeds/list/" +
+     googleSheetKey +
+     "/od6/public/values?alt=json-in-script",
+   dataType: "jsonp",
+   success: function(jsonFromSheet) {
+     theSheet = jsonFromSheet;
+     // console.log(theSheet);
+   }
+ });
+ 
+ // Begin Markup 
+ window.onload = function() { 
+   table = ""; 
+   $x = 0;
+  
+   // Loop through sheet rows
+   theSheet.feed.entry.forEach(function(row) {
+     $x++; 
+ 
+     // Get Salesmen's Sales Totals 
+     var total= parseFloat(row.gsx$column1.$t);
+     var total2= parseFloat(row.gsx$column2.$t); 
+  
+ 
+     tableRow = "<tr>";
+     tableRow += "<td>" + row.gsx$column1.$t + "</td>";
+     tableRow += "<td>" + row.gsx$column2.$t + "</td>";
+     tableRow += "</tr>";
+     table += tableRow;
+   });
+ 
+   $("#results").html(table);
+   return false;
+ };
+ </script>
+ 
+ 
+    
+    </body>
+
+    
+
+
+ 
