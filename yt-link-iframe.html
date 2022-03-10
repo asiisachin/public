@@ -1,0 +1,21 @@
+<--
+* it will to create youtube iframe using youtube link.
+* simply put the youtube video link in the box, and click on GO button
+* you will see that the specific video is now in iframe box
+    -->
+
+<iframe id="bs-study-m" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<input type="text" id="get_vid" placeholder="please insert youtube url" /> <button onclick="get_vid()">GO</button>
+
+<script>
+function get_vid() { 
+        yt_link = document.getElementById("get_vid").value;
+	embd_id = yt_link.replace('https://www.youtube.com/watch?v=', '');
+
+document.getElementById("bs-study-m").src = "https://www.youtube.com/embed/" + embd_id;
+		}
+	</script>
+
+</script>
+
